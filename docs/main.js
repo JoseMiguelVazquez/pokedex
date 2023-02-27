@@ -38,11 +38,25 @@ function fetchPokemon(id) {
 
 function fetchPokemons(start, limit) {
     spinner.style.display = "block";
+    let i = start;
     setTimeout(()=>{
-        for(let i = start; i <= start + limit; i++) {
-            fetchPokemon(i);
-        }
-    }, "300"); //para probar spinner se pone un timer
+        let counter = setInterval(()=>{
+            if(i <= start + limit){
+                fetchPokemon(i);
+                i++;
+            }
+            else{
+                clearInterval(counter);
+            }
+        },5);
+    },300);
+    
+    // setTimeout(()=>{
+    //     for(let i = start; i <= start + limit; i++) {
+    //         fetchPokemon(i);
+    //     }
+    // }, "300");
+    //para probar spinner se pone un timer
     // for(let i = start; i <= start + limit; i++) {
     //     fetchPokemon(i);
     // }

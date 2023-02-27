@@ -76,23 +76,42 @@ h1 {
   border-radius: 10px;
   padding: 10px;
   /* ff 3.6+ */
-  background:-moz-radial-gradient(circle at 50% 50%, rgba(160, 192, 164, 1) 0%, rgba(156, 183, 160, 1) 50%, rgba(118, 133, 118, 1) 100%);
+  background:-moz-radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 1) 0%, rgba(166, 200, 171, 1) 50%, rgba(138, 160, 138, 1) 100%);
 
   /* safari 5.1+,chrome 10+ */
-  background:-webkit-radial-gradient(circle at 50% 50%, rgba(160, 192, 164, 1) 0%, rgba(156, 183, 160, 1) 50%, rgba(118, 133, 118, 1) 100%);
+  background:-webkit-radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 1) 0%, rgba(166, 200, 171, 1) 50%, rgba(138, 160, 138, 1) 100%);
 
   /* opera 11.10+ */
-  background:-o-radial-gradient(circle at 50% 50%, rgba(160, 192, 164, 1) 0%, rgba(156, 183, 160, 1) 50%, rgba(118, 133, 118, 1) 100%);
+  background:-o-radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 1) 0%, rgba(166, 200, 171, 1) 50%, rgba(138, 160, 138, 1) 100%);
 
   /* ie 10+ */
-  background:-ms-radial-gradient(circle at 50% 50%, rgba(160, 192, 164, 1) 0%, rgba(156, 183, 160, 1) 50%, rgba(118, 133, 118, 1) 100%);
+  background:-ms-radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 1) 0%, rgba(166, 200, 171, 1) 50%, rgba(138, 160, 138, 1) 100%);
 
   /* global 92%+ browsers support */
-  background:radial-gradient(circle at 50% 50%, rgba(160, 192, 164, 1) 0%, rgba(156, 183, 160, 1) 50%, rgba(118, 133, 118, 1) 100%);
+  background:radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 1) 0%, rgba(166, 200, 171, 1) 50%, rgba(138, 160, 138, 1) 100%);
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   width: 100%;
   height: 100%;
   color: rgb(51, 50, 50);
+}
+
+.pokemon-card:hover {
+  /* ff 3.6+ */
+  background:-moz-radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 1) 0%, rgba(183, 220, 188, 1) 43%, rgba(193, 223, 173, 1) 100%);
+
+  /* safari 5.1+,chrome 10+ */
+  background:-webkit-radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 1) 0%, rgba(183, 220, 188, 1) 43%, rgba(193, 223, 173, 1) 100%);
+
+  /* opera 11.10+ */
+  background:-o-radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 1) 0%, rgba(183, 220, 188, 1) 43%, rgba(193, 223, 173, 1) 100%);
+
+  /* ie 10+ */
+  background:-ms-radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 1) 0%, rgba(183, 220, 188, 1) 43%, rgba(193, 223, 173, 1) 100%);
+
+  /* global 92%+ browsers support */
+  background:radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 1) 0%, rgba(183, 220, 188, 1) 43%, rgba(193, 223, 173, 1) 100%);
+
+  box-shadow: 0 0 20px 15px rgba(213, 213, 166, 1), 0 0 40px 10px rgba(213, 213, 166, 1);
 }
 
 .pokemon-card{
