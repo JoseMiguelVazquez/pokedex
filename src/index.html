@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./main.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <title>PokeDex</title>
+</head>
+<body>
+    <div class="title-container">
+        <h1 class="title">PokeDex</h1>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+            <form class="search-container input-group" onsubmit="findPokemon(event)">
+                <input type="text" id="search-pokemon-input" class="form-control" placeholder="Write a Pokemon Name" autocomplete="off">
+                <button id="find-pokemon-button" class="btn btn-secondary" type="submit">Find</button>
+            </form>
+        </div>
+    </div>
+    <main class="wrapper">
+        <div class="large-card-container row">
+            
+        </div>
+        <div class="pokemon-container container">
+            
+        </div>
+        
+        <nav class="pagination">
+            <ul class="pagination">
+              <li id="previous" class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li id="next" class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+
+    </main>
+    
+    
+
+    <div id="spinner" class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <script src="../bootstrap_js/bootstrap.bundle.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

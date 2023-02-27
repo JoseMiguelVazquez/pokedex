@@ -1,0 +1,186 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  /*border: 1px solid red;*/
+}
+
+body {
+  /* ff 3.6+ */
+  background:-moz-linear-gradient(90deg, rgba(227, 59, 0, 1) 0%, rgba(230, 94, 43, 1) 70%, rgba(243, 114, 60, 1) 99%); 
+
+  /* safari 5.1+,chrome 10+ */
+  background:-webkit-linear-gradient(90deg, rgba(227, 59, 0, 1) 0%, rgba(230, 94, 43, 1) 70%, rgba(243, 114, 60, 1) 99%);
+
+  /* opera 11.10+ */
+  background:-o-linear-gradient(90deg, rgba(227, 59, 0, 1) 0%, rgba(230, 94, 43, 1) 70%, rgba(243, 114, 60, 1) 99%);
+
+  /* ie 6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F3723C', endColorstr='#E33B00', GradientType=0 );
+
+  /* ie 10+ */
+  background:-ms-linear-gradient(90deg, rgba(227, 59, 0, 1) 0%, rgba(230, 94, 43, 1) 70%, rgba(243, 114, 60, 1) 99%);
+
+  /* global 94%+ browsers support */
+  background:linear-gradient(90deg, rgba(227, 59, 0, 1) 0%, rgba(230, 94, 43, 1) 70%, rgba(243, 114, 60, 1) 99%);
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.title-container {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: rgb(36, 35, 35);
+  font-size: 4rem;
+  margin: 0;
+}
+
+
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+  
+.pokemon-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+  
+.pokemon-card,
+.large-card {
+  border: 5px solid rgb(51, 50, 50);
+  border-radius: 10px;
+  padding: 10px;
+  /* ff 3.6+ */
+  background:-moz-radial-gradient(circle at 50% 50%, rgba(160, 192, 164, 1) 0%, rgba(156, 183, 160, 1) 50%, rgba(118, 133, 118, 1) 100%);
+
+  /* safari 5.1+,chrome 10+ */
+  background:-webkit-radial-gradient(circle at 50% 50%, rgba(160, 192, 164, 1) 0%, rgba(156, 183, 160, 1) 50%, rgba(118, 133, 118, 1) 100%);
+
+  /* opera 11.10+ */
+  background:-o-radial-gradient(circle at 50% 50%, rgba(160, 192, 164, 1) 0%, rgba(156, 183, 160, 1) 50%, rgba(118, 133, 118, 1) 100%);
+
+  /* ie 10+ */
+  background:-ms-radial-gradient(circle at 50% 50%, rgba(160, 192, 164, 1) 0%, rgba(156, 183, 160, 1) 50%, rgba(118, 133, 118, 1) 100%);
+
+  /* global 92%+ browsers support */
+  background:radial-gradient(circle at 50% 50%, rgba(160, 192, 164, 1) 0%, rgba(156, 183, 160, 1) 50%, rgba(118, 133, 118, 1) 100%);
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  width: 100%;
+  height: 100%;
+  color: rgb(51, 50, 50);
+}
+
+.pokemon-card{
+  cursor: pointer;
+}
+  
+.pokemon-card p {
+  margin: 5px;
+}
+  
+.pokemon-name,
+.large-card-pokemon-name {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+  
+#spinner {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+  
+.pagination {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.large-card-container {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  //align-items: center;
+}
+
+.large-card-wrapper {
+  position: relative;
+  top: 25%;
+  width: 60%;
+  height: 40%;
+}
+
+.large-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.close-card {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  border-radius: 50%;
+  padding: 5px 8px;
+  background: rgb(51, 50, 50);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.large-card-img-container,
+.large-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.large-card-info {
+  align-items: flex-start;
+}
+
+.large-card-info p {
+  text-align: left;
+}
+
+.large-card-img-container img {
+  width: 6rem;
+}
+
+.large-card-pokemon-name {
+  font-size: 1.7rem;
+}
+  
