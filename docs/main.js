@@ -86,10 +86,11 @@ previousBtn.addEventListener("click", ()=>{
 });
 
 nextBtn.addEventListener("click", ()=>{
-    //agregar el max num de pokemons y no deje hacer next
-    removeChilds(pokemonContainer);
-    start += limit + 1;
-    fetchPokemons(start, limit);
+    if(start != 1000){
+        removeChilds(pokemonContainer);
+        start += limit + 1;
+        fetchPokemons(start, limit);
+    }
 });
 
 
