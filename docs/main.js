@@ -7,6 +7,7 @@ let limit = 8;
 function createPokemonCard(pokemon){
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("pokemon-card");
+    cardDiv.classList.add("shadow-pop-bl");
     cardDiv.onclick = () => {showLargeCard(pokemon);};
 
     const imageContainer = document.createElement("div");
@@ -66,7 +67,7 @@ fetchPokemons(start, limit);
 
 
 
-//PASAR A OTRO ARCHIVO?
+//PAGINATION (OTRO ARCHIVO?)
 
 const previousBtn = document.getElementById("previous");
 const nextBtn = document.getElementById("next");
@@ -93,19 +94,19 @@ nextBtn.addEventListener("click", ()=>{
 });
 
 
-//PASAR A OTRO ARCHIVO?
+//SHOW LARGE CARD (OTRO ARCHIVO?)
 const largeCardContainer = document.querySelector(".large-card-container");
 
 
 function showLargeCard(pokemon){
     largeCardContainer.style.display = "flex";
-    previousBtn.classList.add("disabled");
-    nextBtn.classList.add("disabled");
+    previousBtn.disabled = true;
+    nextBtn.disabled = true;
     searchInput.disabled = true;
     findButton.disabled = true;
     const largeCard = document.createElement("div");
     largeCard.classList.add("large-card-wrapper");
-    largeCard.innerHTML = `<div class="large-card">
+    largeCard.innerHTML = `<div class="large-card scale-in-center">
                                 <div class="close-card" onclick="closeLargeCard()">X</div>
                                 <div class="large-card-img-container">
                                     <img src=${pokemon.sprites.other["official-artwork"].front_default}>
@@ -121,27 +122,44 @@ function showLargeCard(pokemon){
                                     <p><b>Weight:</b> ${(pokemon.weight*0.1).toFixed(2)} kg</p>
                                 </div>
                             </div>`;
-
     largeCardContainer.appendChild(largeCard);
 }
 
+const badgeColors = {
+    electric: '#FFEA70',
+    normal: '#B09398',
+    fire: '#FF675C',
+    water: '#0596C7',
+    ice: '#AFEAFD',
+    rock: '#999799',
+    flying: '#7AE7C7',
+    grass: '#4A9681',
+    psychic: '#FFC6D9',
+    ghost: '#B279DF',
+    bug: '#A2FAA3',
+    poison: '#795663',
+    ground: '#D2B074',
+    dragon: '#DA627D',
+    steel: '#87B7BE',
+    fighting: '#E37D5D',
+    default: '#2A1A1F',
+};
+
+
+
 function getPokemonTypes(pokemon) {
-    let types = "";
-    if(pokemon.types.length == 1){
-        types = `${pokemon.types[0].type.name}`;
+    let types = document.createElement("span");
+    for(let i=0; i<pokemon.types.length;i++){
+        let badge = document.createElement("span");
+        badge.classList.add("badge");
+        let typeText = pokemon.types[i].type.name;
+        badge.textContent = `${typeText}`;
+        types.appendChild(badge);
+        badge.style.background = badgeColors[typeText];
     }
-    else {
-        for(let i=0; i<pokemon.types.length;i++){
-            if(i == pokemon.types.length -1) {
-                types += `${pokemon.types[i].type.name}`;
-            }
-            else {
-                types += `${pokemon.types[i].type.name}, `;
-            }
-        }
-    }
-    return types;
+    return types.innerHTML;
 }
+
 
 function getPokemonAbilities(pokemon) {
     let abilities = "";
@@ -170,7 +188,7 @@ function closeLargeCard(){
     removeChilds(largeCardContainer);
 }
 
-//EN OTRO ARCHIVO??
+//SEARCH POKEMON (OTRO ARCHIVO?)
 
 const searchInput = document.getElementById("search-pokemon-input");
 const findButton = document.getElementById("find-pokemon-button");
@@ -195,3 +213,6 @@ function findPokemon(event) {
         });
     }
 }
+
+
+

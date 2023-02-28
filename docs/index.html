@@ -14,10 +14,13 @@
     <title>PokeDex</title>
 </head>
 <body>
-    <div class="title-container">
+    <div class="title-container mb-3">
+        <div class="dex-circle">
+            <div class="dex-little-circle"></div>
+        </div>
         <h1 class="title">PokeDex</h1>
     </div>
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center mb-3">
         <div class="col-6">
             <form class="search-container input-group" onsubmit="findPokemon(event)">
                 <input type="text" id="search-pokemon-input" class="form-control" placeholder="Write a Pokemon Name" autocomplete="off">
@@ -33,10 +36,10 @@
             
         </div>
         
-        <nav class="pagination">
-            <ul class="pagination">
-              <li id="previous" class="page-item"><a class="page-link" href="#">Previous</a></li>
-              <li id="next" class="page-item"><a class="page-link" href="#">Next</a></li>
+        <nav class="pagination mt-2">
+            <ul class="pagination d-flex justify-content-center">
+              <li id="previous" class="page-item"><a class="page-link" href="#"><<</a></li>
+              <li id="next" class="page-item"><a class="page-link" href="#">>></a></li>
             </ul>
         </nav>
 
