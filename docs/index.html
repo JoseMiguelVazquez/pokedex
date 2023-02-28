@@ -25,6 +25,7 @@
             <form class="search-container input-group" onsubmit="findPokemon(event)">
                 <input type="text" id="search-pokemon-input" class="form-control" placeholder="Write a Pokemon Name" autocomplete="off">
                 <button id="find-pokemon-button" class="btn btn-secondary" type="submit">Find</button>
+                <button id="random-pokemon-button" class="btn btn-secondary ms-2" type="button" onclick="randomPokemon()">Random</button>
             </form>
         </div>
     </div>
@@ -38,8 +39,8 @@
         
         <nav class="pagination mt-2">
             <ul class="pagination d-flex justify-content-center">
-              <li id="previous" class="page-item"><a class="page-link" href="#"><<</a></li>
-              <li id="next" class="page-item"><a class="page-link" href="#">>></a></li>
+              <li id="previous" class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li id="next" class="page-item"><a class="page-link" href="#">Next</a></li>
             </ul>
         </nav>
 

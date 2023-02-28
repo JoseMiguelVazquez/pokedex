@@ -23,8 +23,8 @@ function createPokemonCard(pokemon){
     pokemonName.textContent = pokemon.name;
 
     const pokemonNumber = document.createElement("p");
-    pokemonNumber.textContent = `No: ${pokemon.id}`;
-    // pokemonNumber.textContent = `#${pokemon.id.toString().padStart(3,0)}`;
+    //pokemonNumber.textContent = `No: ${pokemon.id}`;
+    pokemonNumber.textContent = `#${pokemon.id.toString().padStart(3,0)}`;
 
     cardDiv.append(imageContainer, pokemonName, pokemonNumber);
     pokemonContainer.appendChild(cardDiv);
@@ -66,7 +66,6 @@ function fetchPokemons(start, limit) {
 fetchPokemons(start, limit);
 
 
-
 //PAGINATION (OTRO ARCHIVO?)
 
 const previousBtn = document.getElementById("previous");
@@ -104,6 +103,7 @@ function showLargeCard(pokemon){
     nextBtn.disabled = true;
     searchInput.disabled = true;
     findButton.disabled = true;
+    randomBtn.disabled = true;
     const largeCard = document.createElement("div");
     largeCard.classList.add("large-card-wrapper");
     largeCard.innerHTML = `<div class="large-card scale-in-center">
@@ -115,7 +115,7 @@ function showLargeCard(pokemon){
                                     <p>Shiny</p>
                                 </div>
                                 <div class="large-card-info">
-                                    <p class="large-card-pokemon-name">${pokemon.name}</p>
+                                    <p class="large-card-pokemon-name">${pokemon.name}  <span class="fs-5">(#${pokemon.id.toString().padStart(3,0)})</span></p>
                                     <p><b>Type(s):</b> ${getPokemonTypes(pokemon)}</p>
                                     <p><b>Abilities:</b> ${getPokemonAbilities(pokemon)}</p>
                                     <p><b>Height:</b> ${(pokemon.height*0.1).toFixed(2)} m</p>
@@ -134,7 +134,7 @@ const badgeColors = {
     rock: '#999799',
     flying: '#7AE7C7',
     grass: '#4A9681',
-    psychic: '#FFC6D9',
+    psychic: '#F6B8FF',
     ghost: '#B279DF',
     bug: '#A2FAA3',
     poison: '#795663',
@@ -142,6 +142,7 @@ const badgeColors = {
     dragon: '#DA627D',
     steel: '#87B7BE',
     fighting: '#E37D5D',
+    fairy: "#FDBBDF",
     default: '#2A1A1F',
 };
 
@@ -185,6 +186,7 @@ function closeLargeCard(){
     nextBtn.classList.remove("disabled");
     searchInput.disabled = false;
     findButton.disabled = false;
+    randomBtn.disabled = false;
     removeChilds(largeCardContainer);
 }
 
@@ -216,3 +218,21 @@ function findPokemon(event) {
 
 
 
+//RANDOM POKEMON (OTRO ARCHIVO?)
+
+const randomBtn = document.getElementById("random-pokemon-button");
+
+function randomPokemon(){
+    let randomNumber = Math.floor(Math.random() * 1008) + 1;
+    fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}/`)
+    .then((response) => {
+        if (response.ok){
+            return response.json();
+        }
+        throw new Error("Something went wrong");
+    })
+    .then(pokemon => showLargeCard(pokemon))
+    .catch((error) => {
+        console.log(error)
+    });
+}
