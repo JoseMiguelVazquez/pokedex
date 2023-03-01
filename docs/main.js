@@ -68,13 +68,12 @@ const nextBtn = document.getElementById("next");
 previousBtn.disabled = true;
 nextBtn.disabled = true;
 
-function removeChildren(parent){
+function removeChildren(parent,timeToRemove){
     setTimeout(()=>{
         while(parent.hasChildNodes()){
             parent.removeChild(parent.lastChild);
         }
-    },500);
-    
+    },timeToRemove);
 }
 
 function exitAnimation(){
@@ -89,7 +88,7 @@ previousBtn.addEventListener("click", ()=>{
         exitAnimation();
         previousBtn.disabled = true;
         nextBtn.disabled = true;
-        removeChildren(pokemonContainer);
+        removeChildren(pokemonContainer,500);
         start -= limit + 1;
         fetchPokemons(start, limit);
     }
@@ -100,7 +99,7 @@ nextBtn.addEventListener("click", ()=>{
         exitAnimation();
         previousBtn.disabled = true;
         nextBtn.disabled = true;
-        removeChildren(pokemonContainer);
+        removeChildren(pokemonContainer,500);
         start += limit + 1;
         fetchPokemons(start, limit);
     }
@@ -201,7 +200,7 @@ function closeLargeCard(){
     searchInput.disabled = false;
     findButton.disabled = false;
     randomBtn.disabled = false;
-    removeChildren(largeCardContainer);
+    removeChildren(largeCardContainer,0);
 }
 
 //SEARCH POKEMON (OTRO ARCHIVO?)
