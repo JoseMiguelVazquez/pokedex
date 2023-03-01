@@ -7,7 +7,7 @@ let limit = 8;
 function createPokemonCard(pokemon){
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("pokemon-card");
-    cardDiv.classList.add("shadow-pop-bl");
+    cardDiv.classList.add("shadow-pop-bl-fade-in");
     cardDiv.onclick = () => {showLargeCard(pokemon);};
 
     const imageContainer = document.createElement("div");
@@ -53,7 +53,7 @@ function fetchPokemons(start, limit) {
                 nextBtn.disabled = false;
                 clearInterval(counter);
             }
-        },50);
+        },100);
     },500);
 }
 
@@ -69,20 +69,24 @@ previousBtn.disabled = true;
 nextBtn.disabled = true;
 
 function removeChildren(parent){
-    pokemonCards = document.querySelectorAll(".pokemon-card");
-    for(var i= 0; i < pokemonCards.length; i++){
-        pokemonCards[i].classList.add("scale-out-center");
-    }
     setTimeout(()=>{
         while(parent.hasChildNodes()){
             parent.removeChild(parent.lastChild);
         }
-    },300);
+    },500);
     
+}
+
+function exitAnimation(){
+    pokemonCards = document.querySelectorAll(".pokemon-card");
+    for(var i= 0; i < pokemonCards.length; i++){
+        pokemonCards[i].classList.add("shadow-pop-bl-exit-fade-out");
+    }
 }
 
 previousBtn.addEventListener("click", ()=>{
     if(start != 1){
+        exitAnimation();
         previousBtn.disabled = true;
         nextBtn.disabled = true;
         removeChildren(pokemonContainer);
@@ -93,6 +97,7 @@ previousBtn.addEventListener("click", ()=>{
 
 nextBtn.addEventListener("click", ()=>{
     if(start != 1000){
+        exitAnimation();
         previousBtn.disabled = true;
         nextBtn.disabled = true;
         removeChildren(pokemonContainer);
