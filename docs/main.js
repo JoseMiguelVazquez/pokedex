@@ -114,6 +114,7 @@ function disablePokemonCards(){
     const pokemonCards = document.querySelectorAll(".pokemon-card");
     for(let i= 0; i < pokemonCards.length; i++){
         pokemonCards[i].classList.remove("pokemon-card_hover");
+        pokemonCards[i].classList.add("pokemon-card-disabled");
         pokemonCards[i].disabled = true;
     }
 }
@@ -122,6 +123,7 @@ function enablePokemonCards(){
     const pokemonCards = document.querySelectorAll(".pokemon-card");
     for(let i= 0; i < pokemonCards.length; i++){
         pokemonCards[i].classList.add("pokemon-card_hover");
+        pokemonCards[i].classList.remove("pokemon-card-disabled");
         pokemonCards[i].disabled = false;
     }
 }

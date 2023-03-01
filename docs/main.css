@@ -11728,21 +11728,22 @@ textarea.form-control-lg {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /*border: 1px solid red;*/
 }
 
 body {
   /* ff 3.6+ */
   /* safari 5.1+,chrome 10+ */
   /* opera 11.10+ */
-  background: -o-linear-gradient(90deg, rgb(227, 59, 0) 0%, rgb(230, 94, 43) 70%, rgb(243, 114, 60) 99%);
+  background: -o-linear-gradient(90deg, rgb(229, 52, 38) 0%, rgb(240, 74, 60) 52%, rgb(247, 87, 73) 100%);
   /* ie 6-9 */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#F3723C", endColorstr="#E33B00", GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#F75749", endColorstr="#E53426", GradientType=0 );
   /* ie 10+ */
   /* global 94%+ browsers support */
-  background: linear-gradient(90deg, rgb(227, 59, 0) 0%, rgb(230, 94, 43) 70%, rgb(243, 114, 60) 99%);
+  background: linear-gradient(90deg, rgb(229, 52, 38) 0%, rgb(240, 74, 60) 52%, rgb(247, 87, 73) 100%);
   text-align: center;
   font-family: "Orbitron", sans-serif;
+  overflow-x: hidden;
+  overflow-y: overlay;
 }
 
 .title-container {
@@ -11753,17 +11754,18 @@ body {
 }
 
 .dex-circle {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border: 4px solid rgb(252, 252, 252);
   border-radius: 50%;
   background-color: rgba(0, 82, 150, 0.993);
   margin-right: 15px;
+  box-shadow: -4px 4px 3px rgba(0, 0, 0, 0.35);
 }
 
 .dex-little-circle {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background-color: rgba(16, 117, 201, 0.993);
   position: relative;
@@ -11772,9 +11774,11 @@ body {
 }
 
 h1, .h1 {
-  color: rgb(36, 35, 35);
-  font-size: 4rem;
+  color: rgb(238, 233, 228);
+  font-size: 2.8rem;
   margin: 0;
+  text-shadow: -4px 4px 3px rgba(0, 0, 0, 0.35);
+  -webkit-text-stroke: 2px rgb(36, 35, 35);
 }
 
 .wrapper {
@@ -11786,16 +11790,16 @@ h1, .h1 {
 
 .pokemon-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 30px;
-  width: 80%;
-  min-height: 701px;
+  width: 90%;
+  min-height: 2044px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
   margin-top: 10px;
-  background-color: rgb(187, 187, 187);
+  background-color: rgb(207, 203, 198);
   padding: 20px 40px;
   border-radius: 2%;
   border: 10px solid #3e3e3e;
@@ -11807,34 +11811,37 @@ h1, .h1 {
   filter: drop-shadow(-5px 5px 3px rgba(100, 100, 100, 0.5));
 }
 
-.pokemon-card {
+.pokemon-card,
+.large-card {
   border: 5px solid #3e3e3e;
   border-radius: 10px;
   padding: 10px;
   width: 100%;
   height: 100%;
   color: rgb(51, 50, 50);
-  /* ff 3.6+ */
-  /* safari 5.1+,chrome 10+ */
-  /* opera 11.10+ */
-  /* ie 10+ */
-  /* global 92%+ browsers support */
-  background: radial-gradient(circle at 50% 50%, rgb(202, 247, 207) 0%, rgba(166, 200, 171, 0.68) 50%, rgba(138, 160, 138, 0.37) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.58' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  cursor: pointer;
+  background-color: rgb(112, 176, 206);
+}
+
+.pokemon-card {
   max-height: 222.59px;
+}
+
+.pokemon-card-disabled {
+  filter: grayscale(60%);
 }
 
 .pokemon-card p {
   margin: 5px;
 }
 
+.pokemon-card_hover {
+  cursor: pointer;
+  transition: 1s;
+  transition: 0.3s;
+}
+
 .pokemon-card_hover:hover {
-  /* ff 3.6+ */
-  /* safari 5.1+,chrome 10+ */
-  /* opera 11.10+ */
-  /* ie 10+ */
-  /* global 92%+ browsers support */
-  background: radial-gradient(circle at 50% 50%, rgb(202, 247, 207) 0%, rgba(183, 220, 188, 0.8) 43%, rgba(193, 223, 173, 0.6) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.58' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-color: rgb(137, 231, 237);
 }
 @keyframes shadow-pop-bl {
   0% {
@@ -11899,6 +11906,34 @@ h1, .h1 {
   margin-right: auto;
   margin-bottom: 10px;
 }
+
+.btn-secondary,
+.page-link,
+.page-link:focus {
+  background: rgb(51, 50, 50);
+  border: none;
+  color: white;
+}
+
+.btn-secondary:hover,
+.page-link:hover {
+  background: rgb(75, 72, 72);
+  color: white;
+}
+
+#previous,
+#next {
+  width: 120px;
+  margin: 0 10px;
+}
+
+.pagination:disabled,
+.page-item:disabled,
+.page-link:disabled {
+  color: var(--bs-btn-disabled-color);
+  opacity: var(--bs-btn-disabled-opacity);
+  border: 5px red;
+}
 @keyframes scale-in-center {
   0% {
     transform: scale(0);
@@ -11916,6 +11951,7 @@ h1, .h1 {
 .large-card-container {
   display: none;
   position: absolute;
+  top: 25%;
   z-index: 1000;
   width: 100%;
   justify-content: center;
@@ -11923,7 +11959,6 @@ h1, .h1 {
 
 .large-card-wrapper {
   position: relative;
-  top: 25%;
   width: 60%;
   height: 40%;
 }
@@ -11932,24 +11967,12 @@ h1, .h1 {
   display: grid;
   grid-template-columns: 1fr 2fr;
   box-shadow: -10px 10px 0px rgba(100, 100, 100, 0.5);
-  border: 5px solid #3e3e3e;
-  border-radius: 10px;
-  padding: 10px;
-  width: 100%;
-  height: 100%;
-  color: rgb(51, 50, 50);
-  /* ff 3.6+ */
-  /* safari 5.1+,chrome 10+ */
-  /* opera 11.10+ */
-  /* ie 10+ */
-  /* global 92%+ browsers support */
-  background: radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 0.95), rgba(138, 160, 138, 0.85)), url("data:image/svg+xml,%3Csvg viewBox='0 0 278 278' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.58' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .close-card {
   position: absolute;
   top: 10px;
-  right: 25px;
+  right: 13px;
   border-radius: 50%;
   padding: 5px 8px;
   background: rgb(51, 50, 50);
@@ -11992,30 +12015,32 @@ h1, .h1 {
   font-size: 1.8rem;
 }
 
-.btn-secondary,
-.page-link,
-.page-link:focus {
-  background: rgb(51, 50, 50);
-  border: none;
-  color: white;
+@media screen and (min-width: 576px) {
+  .pokemon-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    min-height: 1149px;
+  }
+  h1, .h1 {
+    font-size: 4rem;
+  }
+  .dex-circle {
+    width: 60px;
+    height: 60px;
+  }
+  .dex-little-circle {
+    width: 20px;
+    height: 20px;
+  }
+  #previous,
+  #next {
+    width: 200px;
+  }
 }
-
-.btn-secondary:hover,
-.page-link:hover {
-  background: rgb(75, 72, 72);
-  color: white;
-}
-
-#previous,
-#next {
-  width: 200px;
-  margin: 0 10px;
-}
-
-.pagination:disabled,
-.page-item:disabled,
-.page-link:disabled {
-  color: var(--bs-btn-disabled-color);
-  opacity: var(--bs-btn-disabled-opacity);
-  border: 5px red;
+@media screen and (min-width: 768px) {
+  .pokemon-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    min-height: 701.39px;
+  }
 }
