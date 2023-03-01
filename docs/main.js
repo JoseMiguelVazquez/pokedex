@@ -14,6 +14,7 @@ function createPokemonCard(pokemon){
     imageContainer.classList.add("img-container");
 
     const pokemonImage = document.createElement("img");
+    // pokemonImage.loading = "lazy";
     pokemonImage.src = pokemon.sprites.front_default;
 
     imageContainer.appendChild(pokemonImage);
@@ -39,6 +40,7 @@ function fetchPokemon(id) {
 
 function fetchPokemons(start, limit) {
     spinner.style.display = "block";
+    
     let i = start;
     setTimeout(()=>{
         let counter = setInterval(()=>{
@@ -47,20 +49,12 @@ function fetchPokemons(start, limit) {
                 i++;
             }
             else{
+                previousBtn.disabled = false;
+                nextBtn.disabled = false;
                 clearInterval(counter);
             }
-        },5);
-    },300);
-    
-    // setTimeout(()=>{
-    //     for(let i = start; i <= start + limit; i++) {
-    //         fetchPokemon(i);
-    //     }
-    // }, "300");
-    //para probar spinner se pone un timer
-    // for(let i = start; i <= start + limit; i++) {
-    //     fetchPokemon(i);
-    // }
+        },50);
+    },500);
 }
 
 fetchPokemons(start, limit);
@@ -71,15 +65,27 @@ fetchPokemons(start, limit);
 const previousBtn = document.getElementById("previous");
 const nextBtn = document.getElementById("next");
 
-function removeChilds(parent){
-    while(parent.hasChildNodes()){
-        parent.removeChild(parent.lastChild);
+previousBtn.disabled = true;
+nextBtn.disabled = true;
+
+function removeChildren(parent){
+    pokemonCards = document.querySelectorAll(".pokemon-card");
+    for(var i= 0; i < pokemonCards.length; i++){
+        pokemonCards[i].classList.add("scale-out-center");
     }
+    setTimeout(()=>{
+        while(parent.hasChildNodes()){
+            parent.removeChild(parent.lastChild);
+        }
+    },300);
+    
 }
 
 previousBtn.addEventListener("click", ()=>{
     if(start != 1){
-        removeChilds(pokemonContainer);
+        previousBtn.disabled = true;
+        nextBtn.disabled = true;
+        removeChildren(pokemonContainer);
         start -= limit + 1;
         fetchPokemons(start, limit);
     }
@@ -87,7 +93,9 @@ previousBtn.addEventListener("click", ()=>{
 
 nextBtn.addEventListener("click", ()=>{
     if(start != 1000){
-        removeChilds(pokemonContainer);
+        previousBtn.disabled = true;
+        nextBtn.disabled = true;
+        removeChildren(pokemonContainer);
         start += limit + 1;
         fetchPokemons(start, limit);
     }
@@ -183,12 +191,12 @@ function getPokemonAbilities(pokemon) {
 
 function closeLargeCard(){
     largeCardContainer.style.display = "none";
-    previousBtn.classList.remove("disabled");
-    nextBtn.classList.remove("disabled");
+    previousBtn.disabled = false;
+    nextBtn.disabled = false;
     searchInput.disabled = false;
     findButton.disabled = false;
     randomBtn.disabled = false;
-    removeChilds(largeCardContainer);
+    removeChildren(largeCardContainer);
 }
 
 //SEARCH POKEMON (OTRO ARCHIVO?)
