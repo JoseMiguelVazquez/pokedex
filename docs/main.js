@@ -5,8 +5,9 @@ let limit = 8;
 
 
 function createPokemonCard(pokemon){
-    const cardDiv = document.createElement("div");
+    const cardDiv = document.createElement("button");
     cardDiv.classList.add("pokemon-card");
+    cardDiv.classList.add("pokemon-card_hover");
     cardDiv.classList.add("shadow-pop-bl-fade-in");
     cardDiv.onclick = () => {showLargeCard(pokemon);};
 
@@ -77,8 +78,8 @@ function removeChildren(parent,timeToRemove){
 }
 
 function exitAnimation(){
-    pokemonCards = document.querySelectorAll(".pokemon-card");
-    for(var i= 0; i < pokemonCards.length; i++){
+    const pokemonCards = document.querySelectorAll(".pokemon-card");
+    for(let i= 0; i < pokemonCards.length; i++){
         pokemonCards[i].classList.add("shadow-pop-bl-exit-fade-out");
     }
 }
@@ -109,6 +110,22 @@ nextBtn.addEventListener("click", ()=>{
 //SHOW LARGE CARD (OTRO ARCHIVO?)
 const largeCardContainer = document.querySelector(".large-card-container");
 
+function disablePokemonCards(){
+    const pokemonCards = document.querySelectorAll(".pokemon-card");
+    for(let i= 0; i < pokemonCards.length; i++){
+        pokemonCards[i].classList.remove("pokemon-card_hover");
+        pokemonCards[i].disabled = true;
+    }
+}
+
+function enablePokemonCards(){
+    const pokemonCards = document.querySelectorAll(".pokemon-card");
+    for(let i= 0; i < pokemonCards.length; i++){
+        pokemonCards[i].classList.add("pokemon-card_hover");
+        pokemonCards[i].disabled = false;
+    }
+}
+
 
 function showLargeCard(pokemon){
     largeCardContainer.style.display = "flex";
@@ -117,6 +134,7 @@ function showLargeCard(pokemon){
     searchInput.disabled = true;
     findButton.disabled = true;
     randomBtn.disabled = true;
+    disablePokemonCards();
     const largeCard = document.createElement("div");
     largeCard.classList.add("large-card-wrapper");
     largeCard.innerHTML = `<div class="large-card scale-in-center">
@@ -200,6 +218,7 @@ function closeLargeCard(){
     searchInput.disabled = false;
     findButton.disabled = false;
     randomBtn.disabled = false;
+    enablePokemonCards();
     removeChildren(largeCardContainer,0);
 }
 

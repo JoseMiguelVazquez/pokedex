@@ -11807,8 +11807,7 @@ h1, .h1 {
   filter: drop-shadow(-5px 5px 3px rgba(100, 100, 100, 0.5));
 }
 
-.pokemon-card,
-.large-card {
+.pokemon-card {
   border: 5px solid #3e3e3e;
   border-radius: 10px;
   padding: 10px;
@@ -11820,16 +11819,22 @@ h1, .h1 {
   /* opera 11.10+ */
   /* ie 10+ */
   /* global 92%+ browsers support */
-  background: radial-gradient(circle at 50% 50%, rgb(202, 247, 207) 0%, rgb(166, 200, 171) 50%, rgb(138, 160, 138) 100%);
+  background: radial-gradient(circle at 50% 50%, rgb(202, 247, 207) 0%, rgba(166, 200, 171, 0.68) 50%, rgba(138, 160, 138, 0.37) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.58' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  cursor: pointer;
+  max-height: 222.59px;
 }
 
-.pokemon-card:hover {
+.pokemon-card p {
+  margin: 5px;
+}
+
+.pokemon-card_hover:hover {
   /* ff 3.6+ */
   /* safari 5.1+,chrome 10+ */
   /* opera 11.10+ */
   /* ie 10+ */
   /* global 92%+ browsers support */
-  background: radial-gradient(circle at 50% 50%, rgb(202, 247, 207) 0%, rgb(183, 220, 188) 43%, rgb(193, 223, 173) 100%);
+  background: radial-gradient(circle at 50% 50%, rgb(202, 247, 207) 0%, rgba(183, 220, 188, 0.8) 43%, rgba(193, 223, 173, 0.6) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.58' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 @keyframes shadow-pop-bl {
   0% {
@@ -11874,15 +11879,6 @@ h1, .h1 {
   animation: shadow-pop-bl-exit 0.3s linear reverse both, fade-out 0.3s linear both;
 }
 
-.pokemon-card {
-  cursor: pointer;
-  max-height: 222.59px;
-}
-
-.pokemon-card p {
-  margin: 5px;
-}
-
 .pokemon-name,
 .large-card-pokemon-name {
   text-transform: capitalize;
@@ -11922,7 +11918,6 @@ h1, .h1 {
   position: absolute;
   z-index: 1000;
   width: 100%;
-  height: 100%;
   justify-content: center;
 }
 
@@ -11937,6 +11932,18 @@ h1, .h1 {
   display: grid;
   grid-template-columns: 1fr 2fr;
   box-shadow: -10px 10px 0px rgba(100, 100, 100, 0.5);
+  border: 5px solid #3e3e3e;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  color: rgb(51, 50, 50);
+  /* ff 3.6+ */
+  /* safari 5.1+,chrome 10+ */
+  /* opera 11.10+ */
+  /* ie 10+ */
+  /* global 92%+ browsers support */
+  background: radial-gradient(circle at 50% 50%, rgba(202, 247, 207, 0.95), rgba(138, 160, 138, 0.85)), url("data:image/svg+xml,%3Csvg viewBox='0 0 278 278' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.58' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .close-card {
