@@ -1,6 +1,6 @@
 const pokemonContainer = document.querySelector(".pokemon-container");
 const spinner = document.getElementById("spinner");
-let start = 360;
+let start = 1;
 let limit = 8;
 // if(window.matchMedia("(max-width: 576px)").matches){
 //     limit = 5;
@@ -170,10 +170,14 @@ function showLargeCard(pokemon){
                                 <div class="close-card" onclick="closeLargeCard()">X</div>
                                 <p class="large-card-pokemon-name mb-0">${pokemon.name}  <span class="fs-5">(#${pokemon.id.toString().padStart(3,0)})</span></p>
                                 <div class="large-card-img-container">
-                                    <img src=${pokemon.sprites.other["official-artwork"].front_default}>
-                                    <p>Normal</p>
-                                    <img src=${pokemon.sprites.other["official-artwork"].front_shiny}>
-                                    <p>Shiny</p>
+                                    <div class="large-card-sprite-container">
+                                        <img src=${pokemon.sprites.other["official-artwork"].front_default}>
+                                        <p>Normal</p>
+                                    </div>
+                                    <div class="large-card-sprite-container">
+                                        <img src=${pokemon.sprites.other["official-artwork"].front_shiny}>
+                                        <p>Shiny</p>
+                                    </div>
                                 </div>
                                 <div class="large-card-info">
                                     <p><b>Type(s):</b> ${getPokemonTypes(pokemon)}</p>

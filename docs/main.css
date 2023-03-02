@@ -11952,6 +11952,7 @@ h1, .h1 {
   display: none;
   position: absolute;
   top: 10%;
+  right: 25px;
   z-index: 1000;
   width: 100%;
   justify-content: flex-end;
@@ -11966,6 +11967,10 @@ h1, .h1 {
   display: grid;
   grid-template-columns: 1fr;
   box-shadow: -10px 10px 0px rgba(100, 100, 100, 0.5);
+}
+
+.large-card-pokemon-name {
+  font-size: 1.8rem;
 }
 
 .close-card {
@@ -11990,6 +11995,14 @@ h1, .h1 {
   font-size: 1.2rem;
 }
 
+.large-card-sprite-container img {
+  width: 6rem;
+}
+
+.large-card-sprite-text {
+  display: block;
+}
+
 .large-card-info {
   align-items: flex-start;
 }
@@ -12004,14 +12017,6 @@ h1, .h1 {
   background-color: white;
   margin: 0 2px;
   color: rgb(36, 35, 35);
-}
-
-.large-card-img-container img {
-  width: 6rem;
-}
-
-.large-card-pokemon-name {
-  font-size: 1.8rem;
 }
 
 @media screen and (min-width: 576px) {
@@ -12050,6 +12055,7 @@ h1, .h1 {
   }
   .large-card-img-container {
     flex-direction: row;
+    margin-bottom: 15px;
   }
   #previous,
   #next {
@@ -12067,7 +12073,7 @@ h1, .h1 {
   }
   .large-card-container {
     top: 25%;
-    left: 0px;
+    left: 7px;
   }
   .large-card-pokemon-name {
     grid-column-start: 1;
@@ -12079,10 +12085,14 @@ h1, .h1 {
   }
   .large-card-img-container {
     flex-direction: column;
+    margin-bottom: 0px;
   }
 }
 @media screen and (min-width: 1200px) {
   .pokemon-container {
     max-width: 1100px;
+  }
+  .large-card-wrapper {
+    max-width: 720px;
   }
 }
