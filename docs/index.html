@@ -21,12 +21,12 @@
         <h1 class="title">PokeDex</h1>
     </div>
     <div class="row d-flex justify-content-center mb-0">
-        <div class="col-11 col-sm-9 col-md-8 col-lg-6 col-xl-5">
-            <form class="search-container input-group" onsubmit="findPokemon(event)">
+        <div class="search-random-container col-11 col-sm-9 col-md-8 col-lg-6 col-xl-5">
+            <form class="search-container input-group mb-2" onsubmit="findPokemon(event)">
                 <input type="text" id="search-pokemon-input" class="form-control" placeholder="Write a Pokemon Name" autocomplete="off">
                 <button id="find-pokemon-button" class="btn btn-secondary" type="submit">Find</button>
-                <button id="random-pokemon-button" class="btn btn-secondary ms-2" type="button" onclick="randomPokemon()">Random</button>
             </form>
+            <button id="random-pokemon-button" class="btn btn-secondary ms-2" type="button" onclick="randomPokemon()">Random</button>
         </div>
     </div>
     <main class="wrapper">
