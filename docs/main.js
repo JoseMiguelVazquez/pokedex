@@ -1,7 +1,16 @@
 const pokemonContainer = document.querySelector(".pokemon-container");
 const spinner = document.getElementById("spinner");
-let start = 1;
+let start = 360;
 let limit = 8;
+// if(window.matchMedia("(max-width: 576px)").matches){
+//     limit = 5;
+// }
+// else if(window.matchMedia("(max-width: 768px)").matches){
+//     limit = 7;
+// }
+// else{
+//     limit = 8;
+// }
 
 
 function createPokemonCard(pokemon){
@@ -90,6 +99,15 @@ previousBtn.addEventListener("click", ()=>{
         previousBtn.disabled = true;
         nextBtn.disabled = true;
         removeChildren(pokemonContainer,500);
+        // if(window.matchMedia("(max-width: 576px)").matches){
+        //     limit = 5;
+        // }
+        // else if(window.matchMedia("(max-width: 768px)").matches){
+        //     limit = 7;
+        // }
+        // else{
+        //     limit = 8;
+        // }
         start -= limit + 1;
         fetchPokemons(start, limit);
     }
@@ -101,6 +119,15 @@ nextBtn.addEventListener("click", ()=>{
         previousBtn.disabled = true;
         nextBtn.disabled = true;
         removeChildren(pokemonContainer,500);
+        // if(window.matchMedia("(max-width: 576px)").matches){
+        //     limit = 5;
+        // }
+        // else if(window.matchMedia("(max-width: 768px)").matches){
+        //     limit = 7;
+        // }
+        // else{
+        //     limit = 8;
+        // }
         start += limit + 1;
         fetchPokemons(start, limit);
     }
@@ -141,6 +168,7 @@ function showLargeCard(pokemon){
     largeCard.classList.add("large-card-wrapper");
     largeCard.innerHTML = `<div class="large-card scale-in-center">
                                 <div class="close-card" onclick="closeLargeCard()">X</div>
+                                <p class="large-card-pokemon-name mb-0">${pokemon.name}  <span class="fs-5">(#${pokemon.id.toString().padStart(3,0)})</span></p>
                                 <div class="large-card-img-container">
                                     <img src=${pokemon.sprites.other["official-artwork"].front_default}>
                                     <p>Normal</p>
@@ -148,7 +176,6 @@ function showLargeCard(pokemon){
                                     <p>Shiny</p>
                                 </div>
                                 <div class="large-card-info">
-                                    <p class="large-card-pokemon-name">${pokemon.name}  <span class="fs-5">(#${pokemon.id.toString().padStart(3,0)})</span></p>
                                     <p><b>Type(s):</b> ${getPokemonTypes(pokemon)}</p>
                                     <p><b>Abilities:</b> ${getPokemonAbilities(pokemon)}</p>
                                     <p><b>Height:</b> ${(pokemon.height*0.1).toFixed(2)} m</p>
