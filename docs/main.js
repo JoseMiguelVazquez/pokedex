@@ -11,7 +11,7 @@ let limit = 8;
 // else{
 //     limit = 8;
 // }
-
+//TO CREATE LESS CARDS IN DIFFERENT DEVICE SIZES
 
 function createPokemonCard(pokemon){
     const cardDiv = document.createElement("button");
