@@ -41,8 +41,8 @@ function createPokemonCard(pokemon){
     pokemonContainer.appendChild(cardDiv);
 }
 
-function fetchPokemon(id) {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+async function fetchPokemon(id) {
+    await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     .then(response => response.json())
     .then(stats => createPokemonCard(stats));
     spinner.style.display = "none";
